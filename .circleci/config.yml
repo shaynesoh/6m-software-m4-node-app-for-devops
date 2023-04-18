@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.1
+  node: circleci/node@5.0.1
+  docker: circleci/docker@2.1.4
 jobs:
   build:
     docker:
@@ -9,9 +11,9 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run:
-          name: Install dependencies
-          command: npm install
+      - run: |
+          echo Installing dependencies
+          npm install
   test:
     docker:
       - image: cimg/node:16.10

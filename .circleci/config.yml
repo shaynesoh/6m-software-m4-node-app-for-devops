@@ -32,9 +32,9 @@ jobs:
       - checkout
       - docker/check
       - docker/build:
-          image: shayne96/6m-software-m4-node-app-for-devops
+          image: shayne96/6m-software-m4-node-app-for-devops:tagname
       - docker/push:
-          image: shayne96/6m-software-m4-node-app-for-devops
+          image: shayne96/6m-software-m4-node-app-for-devops:tagname
   deploy:
     docker:
         - image: cimg/node:16.10

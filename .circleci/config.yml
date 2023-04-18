@@ -22,6 +22,16 @@ jobs:
       - run:
           name: Run tests
           command: npm run test
+  build-and-push:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: shayne96/6m-software-m4-node-app-for-devops
+      - docker/push:
+          image: shayne96/6m-software-m4-node-app-for-devops
   publish:
     docker:
       - image: docker:20.10.11
